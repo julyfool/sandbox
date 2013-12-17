@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<title>github page</title>
+<style>
+.chars {font-size:32px;}
+.chars.ft1 {font-family:Helvetica;}
+.chars.ft2 {font-family:sans-serif;}
+.chars.ft3 {font-family:serif;}
+</style>
+</head>
+
+<body>
+<div class="container">
+    <p>
+        <div class="btn-group-vertical font-group">
+            <button type="button" class="btn btn-default active" data-font="1">Helvetica</button>
+            <button type="button" class="btn btn-default" data-font="2">Sans Serif</button>
+            <button type="button" class="btn btn-default" data-font="3">Serif</button>
+        </div>
+    </p>
+    <p class="chars ft1">l I | &Iota; &#12643; &#9134; &#9116; &#9119; &#9122; &#9474;</p>
+</div>
+
+<script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+<script src="bower_components/jquery/jquery.min.js"></script>
+
+<script>
+(function () {
+    $('.font-group').on('click', 'button', function (e) {
+        var $el = $(this);
+        $el.parent().children().removeClass('active');
+        $el.addClass('active');
+        $('.chars')
+            .removeClass('ft1 ft2 ft3')
+            .addClass('ft' + $el.data('font'));
+    });
+}());
+</script>
+
+</body>
+</html>
