@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0">
 <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 <title>github page</title>
-<style>
-.chars {font-size:32px;}
-.chars.ft1 {font-family:Helvetica;}
-.chars.ft2 {font-family:sans-serif;}
-.chars.ft3 {font-family:serif;}
+<style type="text/css">
+    .chars {font-size:32px;}
+    .ft1 {font-family:Helvetica;}
+    .ft2 {font-family:sans-serif;}
+    .ft3 {font-family:serif;}
 </style>
 </head>
 
@@ -17,12 +17,12 @@
 <div class="container">
     <p>
         <div class="btn-group-vertical font-group">
-            <button type="button" class="btn btn-default active" data-font="1">Helvetica</button>
-            <button type="button" class="btn btn-default" data-font="2">Sans Serif</button>
-            <button type="button" class="btn btn-default" data-font="3">Serif</button>
+            <button type="button" class="btn btn-default active ft1" data-font="1">Helvetica</button>
+            <button type="button" class="btn btn-default ft2" data-font="2">Sans Serif</button>
+            <button type="button" class="btn btn-default ft3" data-font="3">Serif</button>
         </div>
     </p>
-    <p class="chars ft1">l I | &Iota; &#12643; &#9134; &#9116; &#9119; &#9122; &#9474;</p>
+    <p class="chars ft1"></p>
 </div>
 
 <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -30,6 +30,9 @@
 
 <script>
 (function () {
+    var chars = ['l', 'I', '|', '&Iota;', '&#12643;', '&#9134;', '&#9116;', '&#9119;', '&#9122;', '&#9474;'],
+        rnd;
+
     $('.font-group').on('click', 'button', function (e) {
         var $el = $(this);
         $el.parent().children().removeClass('active');
@@ -38,6 +41,13 @@
             .removeClass('ft1 ft2 ft3')
             .addClass('ft' + $el.data('font'));
     });
+
+    chars.sort(function () {
+        return Math.round(Math.random()) - 0.5;
+    });
+
+    $('.chars').html(chars.join('  '));
+
 }());
 </script>
 
