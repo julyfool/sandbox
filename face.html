@@ -6,17 +6,31 @@
 <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 <title>( ͡° ͜ʖ ͡°)</title>
 <style>
-    .face {font-size:112px;letter-spacing:6px;}
+    .face, .ouch {font-size:112px;letter-spacing:6px;}
+    .ouch {display:none;letter-spacing:-2px;}
 </style>
 </head>
 
 <body>
 <div class="container">
     <p class="face">( &#865;° &#860;&#662; &#865;°)</p>
+    <p class="ouch">(*´>&#1076;<)</p>
 </div>
 
 <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
 <script src="bower_components/jquery/jquery.min.js"></script>
-
+<script>
+    $(function () {
+        $('body')
+            .on('mousedown', function () {
+                $('.face').hide();
+                $('.ouch').show();
+            })
+            .on('mouseup', function () {
+                $('.ouch').hide();
+                $('.face').show();
+            });
+    });
+</script>
 </body>
 </html>
